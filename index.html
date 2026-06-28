@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WEBSITE FARINAAA</title>
+
+    <!-- TailwindCSS & Flowbite -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.9.3/flowbite.min.css"
+    />
+
+    <style>
+    body {
+        background: linear-gradient(135deg, #ffc5d3 0%, #ffb3c6 50%, #ffc5d3 100%);
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+
+    body::before {
+        content: '💗';
+        position: fixed;
+        font-size: 100px;
+        opacity: 0.05;
+        top: 10%;
+        left: 5%;
+        animation: float 20s infinite ease-in-out;
+        z-index: 0;
+    }
+
+    body::after {
+        content: '💕';
+        position: fixed;
+        font-size: 80px;
+        opacity: 0.05;
+        bottom: 15%;
+        right: 8%;
+        animation: float 15s infinite ease-in-out reverse;
+        z-index: 0;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-30px); }
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fadeInUp { animation: fadeInUp 0.8s ease-out; }
+
+    nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #f472b6, #ec4899);
+        transform: translateX(-50%);
+        transition: width 0.3s;
+    }
+    nav a:hover::after { width: 80%; }
+
+    .gradient-text {
+        background: linear-gradient(135deg, #db2777, #f472b6, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 3s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { filter: hue-rotate(0deg); }
+        50% { filter: hue-rotate(10deg); }
+    }
+
+    .section-divider {
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #f472b6, #ec4899, #f472b6, transparent);
+        margin: 3rem auto;
+        width: 80%;
+        max-width: 300px;
+        border-radius: 10px;
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(244, 114, 182, 0.2);
+        transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+        background: rgba(255, 255, 255, 0.95);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(244, 114, 182, 0.3);
+    }
+
+    .gallery-img {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        position: relative;
+    }
+    .gallery-img::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(236, 72, 153, 0.3);
+        opacity: 0;
+        transition: opacity 0.4s;
+        z-index: 1;
+    }
+    .gallery-img:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 0 15px 35px rgba(244, 114, 182, 0.4);
+    }
+    .gallery-img:hover::before { opacity: 1; }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #f472b6, #ec4899);
+        color: white;
+        transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(244, 114, 182, 0.4);
+    }
+
+    .corner-decor {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border: 3px solid rgba(244, 114, 182, 0.3);
+    }
+    .corner-decor.top-left {
+        top: 20px;
+        left: 20px;
+        border-right: none;
+        border-bottom: none;
+    }
+    .corner-decor.bottom-right {
+        bottom: 20px;
+        right: 20px;
+        border-left: none;
+        border-top: none;
+    }
+
+    #journeyContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    #journeyContent div {
+        width: 100%;
+        max-width: 700px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 1.5rem;
+        padding: 2.5rem;
+        box-shadow: 0 10px 25px rgba(244, 114, 182, 0.25);
+        transition: all 0.3s ease-in-out;
+    }
+
+    #journeyContent div:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(244, 114, 182, 0.35);
+    }
+
+    #journeyContent3 {
+        color: #db2777;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    #journeyContent p {
+        color: #444;
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
+    #journeyContent {
+        color: #777;
+        font-size: 0.9rem;
+    }
+
+    @keyframes fadeUp {
+        0% { opacity: 0; transform: translateY(30px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-up {
+        animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    /* ========================================= */
+    /* Gallery Hero Section Vertikal */
+    /* ========================================= */
+    .scroll-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+        max-width: 100%;
+        justify-items: center;
+    }
+
+    </style>
+</head>
+
+<body class="font-sans text-gray-800">
+    <!-- ===================================================== -->
+    <!-- 🌸 NAVBAR -->
+    <!-- ===================================================== -->
+    <nav class="bg-pink-200/50 backdrop-blur-md fixed w-full z-20 top-0 left-0 shadow-lg">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="#hero" class="flex items-center space-x-2">
+            <span class="text-2xl font-bold text-pink-700 hover:scale-110 transition-transform duration-300">
+                🤍FARINAAA🤍
+            </span>
+            </a>
+
+            <button
+            data-collapse-toggle="navbar-default"
+            type="button"
+            class="inline-flex items-center justify-center w-10 h-10 text-pink-700 border-2 border-pink-400 rounded-lg md:hidden hover:bg-pink-100 focus:outline-none focus:ring-2 focus:ring-pink-300 transition-all duration-300"
+            aria-controls="navbar-default"
+            aria-expanded="false"
+            >
+            ☰
+            </button>
+
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+            <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-pink-100 rounded-lg bg-pink-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent">
+                <li><a href="#hero" class="block py-2 px-3 text-pink-800 hover:text-pink-600 font-semibold transition relative">Home</a></li>
+                <li><a href="#journey" class="block py-2 px-3 text-pink-800 hover:text-pink-600 font-semibold transition relative">Perjalanan</a></li>
+                <li><a href="#anniversary" class="block py-2 px-3 text-pink-800 hover:text-pink-600 font-semibold transition relative">Anniversary</a></li>
+                <li><a href="#album" class="block py-2 px-3 text-pink-800 hover:text-pink-600 font-semibold transition relative">Album</a></li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===================================================== -->
+    <!-- 🌸 HERO SECTION -->
+    <!-- ===================================================== -->
+    <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center pt-28 pb-20">
+        <div class="animate-fadeInUp">
+            <h1 class="text-6xl md:text-6xl font-extrabold gradient-text mb-6 drop-shadow-lg">
+            🤍FAUZAN & SABRINA🤍
+            </h1>
+            <div class="section-divider"></div>
+            <p class="text-lg md:text-xl text-gray-700 max-w-3xl px-6 leading-relaxed">
+            Kisah cinta <span class="font-bold text-pink-700">Fauzan</span> dan <span class="font-bold text-pink-700">Sabrina</span> merupakan Kisah Cinta yang tumbuh dari Sebuah Foto Kegiatan Sekolah semasa SMP. Yang bertahan hingga Saat ini Sampai Selama-Lamanya🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍
+            </p>
+        </div>
+
+        <div class="scroll-gallery mt-12 w-full max-w-6xl">
+            <img src="photo1.jpg" alt="photo1" class="gallery-img h-72 rounded-3xl shadow-xl" />
+            <img src="photo2.jpg" alt="photo2" class="gallery-img h-72 rounded-3xl shadow-xl" />
+            <img src="photo3.jpg" alt="photo3" class="gallery-img h-72 rounded-3xl shadow-xl" />
+            <img src="photo4.jpg" alt="photo4" class="gallery-img h-72 rounded-3xl shadow-xl" />
+            <img src="photo5.jpg" alt="photo5" class="gallery-img h-72 rounded-3xl shadow-xl" />
+        </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 🌸 PERJALANAN -->
+    <!-- ===================================================== -->
+    <section id="journey" class="min-h-screen py-20 px-8 text-center">
+    <div class="corner-decor top-left"></div>
+    <div class="corner-decor bottom-right"></div>
+
+    <h2 class="text-5xl font-bold text-pink-700 mb-4 drop-shadow-md">🤍Perjalanan Cinta🤍</h2>
+    <div class="section-divider"></div>
+    <div id="journeyContent" class="max-w-4xl mx-auto space-y-6 mt-10"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const journey = [
+                {
+                    date: "2022-07-27",
+                    title: "Pertemuan Pertama",
+                    text: "Hari di mana segalanya dimulai. Saat Dimana FARINAAA saling mengenal satu sama lain. Kala itu, Sabrina baru saja menginjak bangku kelas 7 jenjang SMP, saat setelah kegiatan MPLS, Sabrina pun mengenal yang saat itu Fauzan sebagai Abang Kelas nya.",
+                },
+                {
+                    date: "2022-12-21",
+                    title: "Mulai Saling Mengenal",
+                    text: "Saat itu, Sekolah FARINAAA sedang melakukan kegiatan tahunan yaitu Homestay. Saat homestay tersebut Sekolah FARINAAA melakukan sesi dokumentasi berbentuk foto bersama 2 Angkatan. Saat setelah selesai kegiatan Homestay tersebut, Fauzan pun dengan tidak sengaja melihat Sabrina yang tanpa sengaja juga berposisi sejajar ke belakangan dengan Fauzan pada saat sesi dokumentasi foto bersama 2 Angkatan tersebut. Dan dari situ lah Fauzan Mulai Mengenal Dan Menyukai Sabrina. Serta Fauzan pun sempat memendah Perasaan Kepada Sabrina selama beberapa bulan lama nya setelah Mengenal sabrina dari hasil foto bersama 2 Angkatan itu.",
+                },
+                {
+                    date: "2024-11-15",
+                    title: "Momen Dekat Petama",
+                    text: "Sore Hari saat itu, FARINAAA Bertemu di ketidaksengajaan yang Beruntung. Perempatan Ceger menjadi ikonik sekaligus Saksi Bisu tentang tercipta nya Kisah Cinta FARINAAA. Banyak Hal berupa Ujian Maupun Kebahagiaan yang di lalui oleh FARINAAA selama itu, Sampai dimana FARINAAA dapat mewujudkan Hububngan yang Dewasa, Mencintai, Memhami, Mendukung, Bertahan, Memaafkan, Dan Memperjuangkan.",
+                },
+                {
+                    date: "2024-04-09",
+                    title: "Momen Spesial",
+                    text: "Banyak Momen Spesial yang FARINAAA Telah Lewati selama ini. Dari mulai Canda, Tawa, Sedih, Marah, Dan masih banyak sekali Momen Spesial lain nya yang Telah FARINAAA lewati sejauh ini. FARINAAA Selalu mampu untuk berhatan melewati seluruh rintangan dan tantangan yang terjadi selama ini, Tentu nya dengan Tulus, Cinta, Dan kasih Sayang Yang begitu besar dari Fauzan & Sabrina yang sellau berpegang teguh pada Prinsip FARINAAA Yaitu Akan selalu bersama hingga Akhir Hidup Kita Berdua.",
+                },
+            ];
+
+            const journeyContent = document.getElementById("journeyContent");
+
+            if (journeyContent) {
+                journeyContent.innerHTML = ""; // Memastikan kontener bersih sebelum diisi
+
+                journey.forEach((item) => {
+                    // 🔍 Otomatis ubah kata kunci jadi bold dan pink tanpa batasan kata kaku (\b)
+                    let formattedText = item.text
+                        .replace(/Fauzan/g, '<span class="font-bold text-pink-700">Fauzan</span>')
+                        .replace(/Sabrina/g, '<span class="font-bold text-pink-700">Sabrina</span>')
+                        .replace(/FARINAAA/g, '<span class="font-bold text-pink-700">FARINAAA</span>')
+                        .replace(/Perempatan Ceger/g, '<span class="font-bold text-pink-700">Perempatan Ceger</span>');
+
+                    // 💌 Buat elemen card
+                    const card = document.createElement("div");
+                    card.className =
+                        "bg-white/80 rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 mb-4 max-w-3xl mx-auto text-justify leading-relaxed backdrop-blur-sm animate-fade-up";
+
+                    const tanggalFormat = new Date(item.date).toLocaleDateString("id-ID", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                    });
+
+                    card.innerHTML = `
+                        <h3 class="text-2xl font-semibold text-pink-700 mb-2 text-center">${item.title}</h3>
+                        <p class="text-gray-800 text-[1rem] sm:text-[1.05rem]">${formattedText}</p>
+                        <span class="text-sm text-gray-500 mt-3 block text-center">${tanggalFormat}</span>
+                    `;
+
+                    journeyContent.appendChild(card);
+                });
+            }
+        });
+    </script>
+</section>
+
+    <!-- ===================================================== -->
+    <!-- 🌸 ANNIVERSARY -->
+    <!-- ===================================================== -->
+    <section id="anniversary" class="min-h-screen py-20 px-8 text-center bg-pink-100/50">
+        <h2 class="text-5xl font-bold text-pink-700 mb-4 drop-shadow-md">🤍Anniversary🤍</h2>
+        <div class="section-divider"></div>
+
+        <form class="max-w-lg mx-auto glass-card p-10 rounded-3xl shadow-2xl mt-10" enctype="multipart/form-data">
+        <!-- Tanggal Jadian -->
+        <div class="mb-6 text-center">
+        <label class="block text-pink-800 font-bold mb-3 text-lg">🤍Tanggal Jadian Resmi🤍</label>
+        <div id="tanggalJadian" class="w-full border-2 border-pink-200 rounded-xl p-3 focus:ring-4 focus:ring-pink-400 transition bg-white/50"></div>
+        </div>
+
+<!-- Stopwatch Waktu Bersama -->
+<div class="mb-6 text-center">
+  <label class="block text-pink-800 font-bold mb-3 text-lg">🤍Waktu Bersama🤍</label>
+  <div id="stopwatch" class="w-full border-2 border-pink-200 rounded-xl p-3 focus:ring-4 focus:ring-pink-400 transition bg-white/50 text-pink-700 font-semibold text-sm italic opacity-90"></div>
+</div>
+
+
+        <!-- Foto Saat Jadian -->
+        <div class="mb-6">
+  <label class="block text-pink-800 font-bold mb-3 text-lg">Foto Saat Jadian</label>
+
+  <!-- Foto Preview Upload (opsional) -->
+  <img id="photoPreview" 
+       src="" 
+       alt="Preview Foto Jadian" 
+       class="mt-4 mx-auto rounded-2xl shadow-lg hidden w-64 h-64 object-cover" />
+
+  <!-- Foto Default dari Folder -->
+  <img src="fotojadian.jpg" 
+       alt="Foto Saat Jadian" 
+       class="mt-4 mx-auto rounded-2xl shadow-lg w-64 h-64 object-cover" />
+</div>
+        </form>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 🌸 ALBUM -->
+    <!-- ===================================================== -->
+    <section id="album" class="min-h-screen py-20 px-8 text-center">
+        <h2 class="text-5xl font-bold text-pink-700 mb-4 drop-shadow-md">🤍Album Kenangan🤍</h2>
+        <div class="section-divider"></div>
+
+        <p class="text-lg text-pink-800 mb-10">BEBERAPA KOLEKSI DAN KENANGAN FOTO FARINAAA</p>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div class="gallery-img rounded-2xl overflow-hidden shadow-lg bg-white">
+                <img src="foto6.jpg" alt="album1" class="w-full h-64 object-cover" />
+            </div>
+            <div class="gallery-img rounded-2xl overflow-hidden shadow-lg bg-white">
+                <img src="foto7.JPG" alt="album2" class="w-full h-64 object-cover" />
+            </div>
+            <div class="gallery-img rounded-2xl overflow-hidden shadow-lg bg-white">
+                <img src="foto8.JPG" alt="album3" class="w-full h-64 object-cover" />
+            </div>
+            <div class="gallery-img rounded-2xl overflow-hidden shadow-lg bg-white">
+                <img src="foto9.JPG" alt="album4" class="w-full h-64 object-cover" />
+            </div>
+            <div class="gallery-img rounded-2xl overflow-hidden shadow-lg bg-white">
+                <img src="foto10.JPG" alt="album4" class="w-full h-64 object-cover" />
+            </div>
+            <div class="gallery-img rounded-2xl overflow-hidden shadow-lg bg-white">
+                <img src="foto11.JPG" alt="album4" class="w-full h-64 object-cover" />
+            </div>
+            <div class="gallery-img rounded-2xl overflow-hidden shadow-lg bg-white">
+                <img src="foto12.JPG" alt="album4" class="w-full h-64 object-cover" />
+            </div>
+            <div class="gallery-img rounded-2xl overflow-hidden shadow-lg bg-white">
+                <img src="foto13.JPG" alt="album4" class="w-full h-64 object-cover" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- 🌸 FOOTER -->
+    <!-- ===================================================== -->
+    <footer class="text-center py-8 bg-gradient-to-r from-pink-200 via-pink-300 to-pink-200 text-pink-900 font-bold text-lg shadow-inner">
+        <div class="mb-2">🤍© 2025 FARINAAA🤍</div>
+        <div class="text-sm font-normal">Fauzan & Sabrina - Selamanya Bersama🤍🤍🤍🤍🤍🤍</div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.9.3/flowbite.min.js"></script>
+
+    <script>
+    // Smooth Scroll
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+            });
+        }
+        });
+    });
+
+    // ===============================================
+// 🩷 Tanggal Jadian yang bisa kamu atur dari coding
+// ===============================================
+const tanggalJadianCoding = new Date(2025, 3, 9, 15, 24, 29);
+// Penjelasan: bulan dimulai dari 0 (Januari = 0, April = 3), jadi 3 artinya April
+// 9 April 2025 jatuh pada hari Rabu 🩷
+
+// Nama hari & bulan
+const hariNama = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+const bulanNama = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+// Fungsi format tanggal lengkap
+function formatTanggal(date) {
+  const hari = hariNama[date.getDay()];
+  const tanggal = date.getDate();
+  const bulan = bulanNama[date.getMonth()];
+  const tahun = date.getFullYear();
+  const jam = String(date.getHours()).padStart(2, '0');
+  const menit = String(date.getMinutes()).padStart(2, '0');
+  const detik = String(date.getSeconds()).padStart(2, '0');
+  return `${hari}, ${tanggal} ${bulan} ${tahun} ${jam}:${menit}:${detik}`;
+}
+
+// Tampilkan ke elemen
+document.getElementById("tanggalJadian").innerHTML = `
+  <span class="text-pink-700 font-bold">${formatTanggal(tanggalJadianCoding)}</span>
+`;
+
+    document.getElementById("tanggalJadian").innerHTML = `<span class="font-bold text-pink-700">${formatTanggal(tanggalJadianCoding)}</span>`;
+
+    // Hover Interaktif
+    document.querySelectorAll('.gallery-img img').forEach(img => {
+        img.addEventListener('mouseenter', () => {
+            img.style.transform = 'scale(1.05) rotate(2deg)';
+            img.style.transition = 'all 0.4s ease';
+        });
+        img.addEventListener('mouseleave', () => {
+            img.style.transform = 'scale(1) rotate(0deg)';
+            img.style.transition = 'all 0.4s ease';
+        });
+    });
+
+    // Mobile Navbar Toggle
+    const navToggleBtn = document.querySelector('[data-collapse-toggle="navbar-default"]');
+    const navMenu = document.getElementById('navbar-default');
+    if (navToggleBtn && navMenu) {
+        navToggleBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+    }
+
+// =====================================================
+// 💞 STOPWATCH WAKTU BERSAMA SELAMANYA (Versi Profesional)
+// =====================================================
+function updateStopwatch() {
+  const startDate = new Date("2024-11-15T15:29:00+07:00"); // waktu mulai
+  const now = new Date();
+  let diff = now - startDate; // selisih dalam milidetik
+
+  if (diff < 0) diff = 0;
+
+  const detik = Math.floor(diff / 1000);
+  const menit = Math.floor(detik / 60);
+  const jam = Math.floor(menit / 60);
+  const hari = Math.floor(jam / 24);
+
+  const tahun = Math.floor(hari / 365);
+  const bulan = Math.floor((hari % 365) / 30);
+  const sisaHari = hari - (tahun * 365) - (bulan * 30);
+  const sisaJam = jam % 24;
+  const sisaMenit = menit % 60;
+  const sisaDetik = detik % 60;
+
+  // Format tampilan
+  const display = `
+    <span class="text-pink-800 font-bold">Waktu Bersama:</span><br>
+    <span class="text-pink-700 text-xs font-medium">
+      ${tahun} Thn • ${bulan} Bln • ${sisaHari} Hr • ${sisaJam} J • ${sisaMenit} M • ${sisaDetik} D
+    </span>
+  `;
+
+  document.getElementById("stopwatch").innerHTML = display;
+}
+
+// Jalankan real-time setiap detik
+setInterval(updateStopwatch, 1000);
+updateStopwatch();
+
+    </script>
+</body>
+</html>
